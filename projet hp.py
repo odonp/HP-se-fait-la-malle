@@ -35,3 +35,15 @@ while argent > 0 :
     else :
         argent = argent - 1
         print (1)
+
+Deux idées pour continuer le projet :
+
+argent = int(input("Combien avez-vous payé ? "))
+monnaie = {'Billet' : 500,'Billet' : 200,'Billet' : 100,'Billet' : 50,'Billet' : 20,'Billet' : 10,'Billet': 5,'Pièce' : 2,'Pièce' : 1}
+monnaie.values(argent)
+
+
+prix = int(input("Quel est le prix à payer ? "))
+monnaie = [{'Billet' : '500'},{'Billet' : '200'},{'Billet' : '100'},{'Billet' : '50'},{'Billet' : '20'},{'Billet' : '10'},{'Billet': '5'},{'Pièce' : '2'},{'Pièce' : '1'}]
+monnaie.append(prix)    
+print(monnaie)
