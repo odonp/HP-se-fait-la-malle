@@ -47,3 +47,31 @@ prix = int(input("Quel est le prix à payer ? "))
 monnaie = [{'Billet' : '500'},{'Billet' : '200'},{'Billet' : '100'},{'Billet' : '50'},{'Billet' : '20'},{'Billet' : '10'},{'Billet': '5'},{'Pièce' : '2'},{'Pièce' : '1'}]
 monnaie.append(prix)    
 print(monnaie)
+
+# interface homme machine avec conversion de l'argent
+
+entrée = input("Bonjour sorcier/e, vous entrez dans le chemin de traverse, pret a acheter vos fourniture ?")
+ 
+if entrée == "oui" :
+        magasin = input("Voulez vous commencer par achetez des livres ?")
+        if magasin == "oui" :
+        livre = input("vous entré Chez Fleury & Bott voulez vous achetez : Le Livre des sorts et enchantements, niveau 1 de Miranda Fauconnette et Histoire de la magie de Bathilda Tourdesac ?")
+        if livre == "oui" : 
+            argent = int(input("Combien doit-t-on vous rendre ?"))
+            
+                magasin = input("Voulez vous continuer vos achat et achetez une cape ?")
+
+                   if magasin == "oui"
+                       magasin = input("Voulez vous terminez votre course par achetez une baguette ?")
+    
+                       elif magasion == "oui"
+                           Ors = int(input("Combien vaut 1 Gallion ?"))
+                           Gallion = Ors
+                           Mornille = Ors / 17
+                           Gallion = Mornille * 17
+                           Noises = Mornille / 29 
+                           Mornille = 29 * Noises
+
+else:
+    entrée = int(input("Ëtes vous sur ?, vous entré dans le chemin de traverse, pret a acheter vos fourniture ?"))
+    
