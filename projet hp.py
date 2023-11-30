@@ -65,10 +65,7 @@ soustraction = 0
 argent = int(input("Combien avez-vous payé ? "))
 monnaie = [500,200,100,50,20,10,5,2,1]
 monnaie.append(argent)
-print(monnaie)
 monnaie_trie = sorted(monnaie, reverse = True)
-print(monnaie_trie)
-
 index = monnaie_trie.index(argent)
 soustraction = argent - monnaie[index]
-    
+print(index)   
