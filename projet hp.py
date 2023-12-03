@@ -92,6 +92,31 @@ notre programme qui marche
 """
 
 '''
+#On est obligé d'avoir les oui ? Ca alourdit vraiment et ca multiplie les erreurs
+
+entrée = input("Bonjour sorcier/e, vous entrez dans le chemin de traverse, prêt à acheter vos fournitures ? (répondez 'oui' ou 'non')")
+if entrée == "oui" or entrée == "OUI" or entrée == "Oui" :
+    livre = input("vous entrez Chez Fleury & Bott voulez vous achetez : Le Livre des sorts et enchantements, niveau 1 de Miranda Fauconnette et Histoire de la magie de Bathilda Tourdesac ? (répondez 'oui' ou 'non')")
+    if livre == "oui" or livre == "OUI" or livre == "Oui" : 
+        argent = int(input("Combien doit-ont vous rendre ? (entrez un entier)"))
+        
+        liste_rendu_monnaie = rendu_monnaie_illimitee(argent)
+        print(liste_rendu_monnaie)
+        for i in range(len(liste_rendu_monnaie)) :
+            print(f"On vous rend {liste_rendu_monnaie[i]}")
+'''
+
+
+
+
+
+
+
+
+
+
+
+'''
 entrée = input("Bonjour sorcier/e, vous entrez dans le chemin de traverse, prêt à acheter vos fournitures ? (répondez 'oui' ou 'non')")
 if entrée == "oui" or entrée == "OUI" or entrée == "Oui" :
     livre = input("vous entré Chez Fleury & Bott voulez vous achetez : Le Livre des sorts et enchantements, niveau 1 de Miranda Fauconnette et Histoire de la magie de Bathilda Tourdesac ? (répondez 'oui' ou 'non')")
