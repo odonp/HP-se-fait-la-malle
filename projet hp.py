@@ -91,8 +91,8 @@ def affichage(monnaie_a_rendre):
 notre programme qui marche 
 """
 
-'''
-#On est obligé d'avoir les oui ? Ca alourdit vraiment et ca multiplie les erreurs
+
+#On est obligé d'avoir les oui ? Ca alourdit vraiment et ça multiplie les erreurs
 
 entrée = input("Bonjour sorcier/e, vous entrez dans le chemin de traverse, prêt à acheter vos fournitures ? (répondez 'oui' ou 'non')")
 if entrée == "oui" or entrée == "OUI" or entrée == "Oui" :
@@ -103,8 +103,10 @@ if entrée == "oui" or entrée == "OUI" or entrée == "Oui" :
         liste_rendu_monnaie = rendu_monnaie_illimitee(argent)
         print(liste_rendu_monnaie)
         for i in range(len(liste_rendu_monnaie)) :
-            print(f"On vous rend {liste_rendu_monnaie[i]}")
-'''
+            print(f"Je vous rend {liste_rendu_monnaie[i]}€ m.Potter")
+        if len(liste_rendu_monnaie)== 0 :
+            print("Je vous rend 0€ M. Potter")
+
 
 
 
@@ -149,4 +151,3 @@ if entrée == "oui" or entrée == "OUI" or entrée == "Oui" :
 else:
     entrée = input("Ëtes vous sur ?, vous entré dans le chemin de traverse, pret à acheter vos fournitures ? (répondez 'oui' ou 'non')")
     '''
-
