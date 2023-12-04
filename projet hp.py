@@ -94,11 +94,11 @@ notre programme qui marche
 
 #On est obligé d'avoir les oui ? Ca alourdit vraiment et ça multiplie les erreurs
 
-entrée = input("Bonjour sorcier/e, vous entrez dans le chemin de traverse, prêt à acheter vos fournitures ? (répondez 'oui' ou 'non')")
+entrée = input("Bonjour sorcier/e, vous entrez dans le chemin de traverse, prêt à acheter vos fournitures ? (répondez 'oui' ou 'non') ")
 if entrée == "oui" or entrée == "OUI" or entrée == "Oui" :
-    livre = input("vous entrez Chez Fleury & Bott voulez vous achetez : Le Livre des sorts et enchantements, niveau 1 de Miranda Fauconnette et Histoire de la magie de Bathilda Tourdesac ? (répondez 'oui' ou 'non')")
+    livre = input("vous entrez Chez Fleury & Bott voulez vous achetez : Le Livre des sorts et enchantements, niveau 1 de Miranda Fauconnette et Histoire de la magie de Bathilda Tourdesac ? (répondez 'oui' ou 'non') ")
     if livre == "oui" or livre == "OUI" or livre == "Oui" : 
-        argent = int(input("Combien doit-ont vous rendre ? (entrez un entier)"))
+        argent = int(input("Combien doit-ont vous rendre ? (entrez un entier) "))
         
         liste_rendu_monnaie = rendu_monnaie_illimitee(argent)
         print(liste_rendu_monnaie)
