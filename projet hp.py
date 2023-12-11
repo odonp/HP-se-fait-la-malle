@@ -41,6 +41,17 @@ from random import randint
 
 #définition des variables 
 argent_rendu = []
+dico1 = {\
+  500 : 0 ,
+  200:0 ,
+  100:0 , 
+  50:0 ,
+  20:0 ,
+  10:0 ,
+  5:0  , 
+  2:0   ,
+  1:0 }
+
 
 #définition des fonctions dans l'ordre d'utlilisation
 
@@ -89,8 +100,6 @@ def affichage(monnaie_a_rendre):
 
 notre programme qui marche 
 """
-#On est obligé d'avoir les oui ? Ca alourdit vraiment et ça multiplie les erreurs
-dico = {500 : 0 ,200:0,100:0,50:0,20:0,10:0,5:0,2:0,1:0  }
 
 entrée = input("Bonjour sorcier/e, vous entrez dans le chemin de traverse, prêt à acheter vos fournitures ? (répondez 'oui' ou 'non')")
 if entrée == "oui" or entrée == "OUI" or entrée == "Oui" :
@@ -100,14 +109,11 @@ if entrée == "oui" or entrée == "OUI" or entrée == "Oui" :
         
         liste_rendu_monnaie = rendu_monnaie_illimitee(argent)
         
-        for i in range(len(liste_rendu_monnaie)) :
-            if liste_rendu_monnaie[i] == dico[liste_rendu_monnaie[i]]:
-                dico[liste_rendu_monnaie[i]] += 1
-            print(f"Je vous rend {liste_rendu_monnaie[i]}€ m.Potter")
-            print(dico[liste_rendu_monnaie[i]])
-        if len(liste_rendu_monnaie)== 0 :
-            print("Je vous rend 0€ M. Potter")
-            
+        for i in dico1.keys():
+            while argent >= i:
+                dico1[i] += 1
+                argent -= i
+        print(dico1)  
 
 
 
