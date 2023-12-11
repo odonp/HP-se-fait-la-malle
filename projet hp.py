@@ -113,7 +113,9 @@ if entrée == "oui" or entrée == "OUI" or entrée == "Oui" :
             while argent >= i:
                 dico1[i] += 1
                 argent -= i
-        print(dico1)  
+        for i in dico1.keys():
+            if dico1[i] > 0 :
+                print(f"le vendeur vous rend {dico1[i]} coupure.s de {i}")  
 
 
 
