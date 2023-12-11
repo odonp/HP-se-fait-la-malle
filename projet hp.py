@@ -55,7 +55,8 @@ dico1 = {\
 
 #définition des fonctions dans l'ordre d'utlilisation
 
-def rendu_monnaie_illimitee(argent_a_rendre):
+def Chez_Fleury_et_Bott(argent_a_rendre):
+    argent_rendu = []
     while argent_a_rendre > 0 :
         monnaie = [500,200,100,50,20,10,5,2,1]
         monnaie.append(argent_a_rendre)
@@ -64,6 +65,22 @@ def rendu_monnaie_illimitee(argent_a_rendre):
         argent_a_rendre = argent_a_rendre - monnaie[index + 1]
         argent_rendu.append(monnaie[index+1])
     return argent_rendu
+
+def menu():
+    reponse = input("Tu es sur le Chemin de traverse.\nVeux-tu aller en 1,2 ou 3 ? ")
+    if reponse == '1':
+        somme_obligatoire = (0, 60, 63, 231, 899)
+        for chiffre in somme_obligatoire: 
+            librairie = Chez_Fleury_et_Bott(chiffre)
+            print(librairie)
+    
+    elif reponse == '2' :
+        djdsj
+    else :
+        dsqjdsqd
+    reponse = input("Tu es sur le Chemin de traverse.\nVeux-tu aller en 1,2 ou 3 ? ")
+
+menu()
 
 
 
