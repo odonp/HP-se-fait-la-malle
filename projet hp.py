@@ -66,6 +66,27 @@ def Chez_Fleury_et_Bott(argent_a_rendre):
         argent_rendu.append(monnaie[index+1])
     return argent_rendu
 
+def Chez_Ollivander ():
+    a_rendre = []
+    gallions = int(input('Combien de gallion(s) me devez-vous ? '))
+    mornilles = int(input('Combien de mornille(s) me devez-vous ? '))
+    noises = int(input('Combien de noise(s) me devez-vous ? '))
+    somme = (gallions*17*29) + (mornilles*17) + noises
+    while somme > 0 :
+        if somme >= 493 :
+            nbr_gallions = somme // (17*29)
+            a_rendre.append(nbr_gallions)
+            somme -= nbr_gallions  
+        elif somme < 493 and somme >= 29 :
+            nbr_mornilles = somme // 29
+            a_rendre.append(nbr_mornilles)
+            somme -= nbr_mornilles   
+        else :
+            nbr_noises = somme
+            a_rendre.append(nbr_noises)
+    return a_rendre
+Chez_Ollivander ()
+
 def menu():
     reponse = input("Tu es sur le Chemin de traverse.\nVeux-tu aller en 1,2 ou 3 ? ")
     if reponse == '1':
