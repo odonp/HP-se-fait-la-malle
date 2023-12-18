@@ -89,7 +89,7 @@ def Chez_Ollivander():
 
 
 def menu():
-    reponse = input("Tu es sur le Chemin de traverse.\nVeux-tu aller en 1,2 ou 3 ? ")
+    reponse = input("Tu es sur le Chemin de traverse.\nSi tu souhaites aller chez Chez Fleury et Bott, la libairie des sorciers, clique sur 1 \nSi tu souhaites aller chez Madame Guipure, prêt à porter pour mages et sorciers, clique sur 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, clique sur 3  ? ")
     if reponse == '1':
         somme_obligatoire = (0, 60, 63, 231, 899)
         for chiffre in somme_obligatoire: 
