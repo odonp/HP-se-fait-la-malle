@@ -56,28 +56,36 @@ dico_monnaie_illimitée = {\
 #définition des fonctions dans l'ordre d'utlilisation
 
 def menu():
-    reponse = input("Tu es sur le Chemin de traverse.\nVeux-tu aller chez Fleury et Bott (tapez 1), chez Mme Guipur (tapez 2) ou chez Ollivander (tapez 3) ? ")
+    reponse = input("Tu es sur le Chemin de traverse.\nVeux-tu aller chez Fleury et Bott (tapez 1), chez Ollivander (tapez 2) ou 3 (tapez 3)? ")
     if reponse == '1':
-        Chez_Fleury_et_Bott()
-        '''
         somme_obligatoire = (0, 60, 63, 231, 899)
-        for chiffre in somme_obligatoire: 
-            librairie = Chez_Fleury_et_Bott(chiffre)
-            print(librairie)
-        '''
+        livre = input("Vous entrez Chez Fleury & Bott \nVoulez-vous acheter : Le Livre des sorts et enchantements, niveau 1 de Miranda Fauconnette et Histoire de la magie de Bathilda Tourdesac ? (répondez 'oui' ou 'non')")
+        if livre == "oui" or livre == "OUI" or livre == "Oui" : 
+            argent_a_rendre3 = int(input("Combien doit-ont vous rendre ? (entrez un entier)"))
+        print("\n")
+        chez_fleury_et_bott(argent_a_rendre3)
+        print("\n")
+        print("La consigne obligeant, voici l'affichage des sommes à rendre obligatoires:")
+        for elements in somme_obligatoire:
+            print(f"Rendu monnaie pour {elements}€")
+            chez_fleury_et_bott(elements)
+            print("\n")
+
+        
+        
+        
     
     elif reponse == '2' :
         djdsj
+    #Si on répond n'importe quoi ca fait quand meme ollivander
     else :
         Chez_Ollivander()
-    reponse = input("Tu es sur le Chemin de traverse.\nVeux-tu aller en 1,2 ou 3 ? ")
+    reponse = input("Tu es de retour sur le Chemin de traverse.\nVeux-tu aller chez Fleury et Bott (tapez 1), chez Mme Guipur (tapez 2) ou chez Ollivander(tapez 3)?  ")
 
 
 
-def Chez_Fleury_et_Bott():
-    livre = input("Vous entrez Chez Fleury & Bott voulez-vous acheter : Le Livre des sorts et enchantements, niveau 1 de Miranda Fauconnette et Histoire de la magie de Bathilda Tourdesac ? (répondez 'oui' ou 'non')")
-    if livre == "oui" or livre == "OUI" or livre == "Oui" : 
-        argent_a_rendre = int(input("Combien doit-ont vous rendre ? (entrez un entier)"))
+def chez_fleury_et_bott(argent_a_rendre):
+    
     argent_rendu = []
     argent_a_rendre2 = 0
     argent_a_rendre2 = argent_a_rendre
@@ -107,7 +115,7 @@ def Chez_Fleury_et_Bott():
                 argent_a_rendre2 -= i
     for i in dico_monnaie_illimitée.keys():
         if dico_monnaie_illimitée[i] > 0 :
-            print(f"le vendeur vous rend {dico_monnaie_illimitée[i]} coupure.s de {i}")
+            print(f"Le vendeur vous rend {dico_monnaie_illimitée[i]} coupure.s de {i} €")
 
 '''
 def affichage_resultat() :
@@ -150,7 +158,8 @@ def Chez_Ollivander():
         if somme >= 493 :
             nbr_gallions = somme // (17*29)
             a_rendre.append(nbr_gallions)
-            somme -= nbr_gallions  
+            somme -= nbr_gallions 
+            print(a_rendre)
         elif somme < 493 and somme >= 29 :
             nbr_mornilles = somme // 29
             a_rendre.append(nbr_mornilles)
@@ -168,9 +177,6 @@ def Chez_Ollivander():
 """
 
 #DEBUT DU PROGRAMME PRINCIPAL
-
-
-
 
 
 """
@@ -191,11 +197,7 @@ def affichage(monnaie_a_rendre):
     print()
 '''
  
- 
- 
-"""
-notre programme qui marche 
-"""
+
 menu()
 
 
