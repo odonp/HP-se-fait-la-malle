@@ -41,7 +41,7 @@ from random import randint
 
 #définition des variables 
 argent_rendu = []
-dico1 = {\
+dico_monnaie_illimitée = {\
   500 : 0 ,
   200:0 ,
   100:0 , 
@@ -55,8 +55,44 @@ dico1 = {\
 
 #définition des fonctions dans l'ordre d'utlilisation
 
-def Chez_Fleury_et_Bott(argent_a_rendre):
+def menu():
+    reponse = input("Tu es sur le Chemin de traverse.\nVeux-tu aller chez Fleury et Bott (tapez 1), chez Ollivander (tapez 2) ou 3 (tapez 3? ")
+    if reponse == '1':
+        Chez_Fleury_et_Bott()
+        '''
+        somme_obligatoire = (0, 60, 63, 231, 899)
+        for chiffre in somme_obligatoire: 
+            librairie = Chez_Fleury_et_Bott(chiffre)
+            print(librairie)
+        '''
+    
+    elif reponse == '2' :
+        djdsj
+    else :
+        Chez_Ollivander()
+    reponse = input("Tu es sur le Chemin de traverse.\nVeux-tu aller en 1,2 ou 3 ? ")
+
+
+
+def Chez_Fleury_et_Bott():
+    livre = input("Vous entrez Chez Fleury & Bott voulez-vous acheter : Le Livre des sorts et enchantements, niveau 1 de Miranda Fauconnette et Histoire de la magie de Bathilda Tourdesac ? (répondez 'oui' ou 'non')")
+    if livre == "oui" or livre == "OUI" or livre == "Oui" : 
+        argent_a_rendre = int(input("Combien doit-ont vous rendre ? (entrez un entier)"))
     argent_rendu = []
+    argent_a_rendre2 = 0
+    argent_a_rendre2 = argent_a_rendre
+    dico_monnaie_illimitée = {\
+        500 : 0 ,
+        200:0 ,
+        100:0 , 
+        50:0 ,
+        20:0 ,
+        10:0 ,
+        5:0  , 
+        2:0   ,
+        1:0 }
+    
+    argent_a_rendre2 = argent_a_rendre
     while argent_a_rendre > 0 :
         monnaie = [500,200,100,50,20,10,5,2,1]
         monnaie.append(argent_a_rendre)
@@ -64,8 +100,45 @@ def Chez_Fleury_et_Bott(argent_a_rendre):
         index = monnaie.index(argent_a_rendre)
         argent_a_rendre = argent_a_rendre - monnaie[index + 1]
         argent_rendu.append(monnaie[index+1])
-    return argent_rendu
+    
+    for i in dico_monnaie_illimitée.keys():
+            while argent_a_rendre2 >= i:
+                dico_monnaie_illimitée[i] += 1
+                argent_a_rendre2 -= i
+    for i in dico_monnaie_illimitée.keys():
+        if dico_monnaie_illimitée[i] > 0 :
+            print(f"le vendeur vous rend {dico_monnaie_illimitée[i]} coupure.s de {i}")
 
+'''
+def affichage_resultat() :
+    
+'''
+'''
+    Affiche le résulat sous forme de phrase
+
+    Entrée : Un dico 
+    Sortie : Une chaine de caractères
+'''
+'''
+
+    dico_monnaie_illimitée = {\
+    500 : 0 ,
+    200:0 ,
+    100:0 , 
+    50:0 ,
+    20:0 ,
+    10:0 ,
+    5:0  , 
+    2:0   ,
+    1:0 }
+    for i in dico_monnaie_illimitée.keys():
+            while argent >= i:
+                dico_monnaie_illimitée[i] += 1
+                argent -= i
+    for i in dico_monnaie_illimitée.keys():
+        if dico_monnaie_illimitée[i] > 0 :
+            print(f"le vendeur vous rend {dico_monnaie_illimitée[i]} coupure.s de {i}")
+'''
 
 def Chez_Ollivander():
     a_rendre = []
@@ -88,21 +161,7 @@ def Chez_Ollivander():
     return a_rendre
 
 
-def menu():
-    reponse = input("Tu es sur le Chemin de traverse.\nSi tu souhaites aller chez Chez Fleury et Bott, la libairie des sorciers, clique sur 1 \nSi tu souhaites aller chez Madame Guipure, prêt à porter pour mages et sorciers, clique sur 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, clique sur 3 \nOù souhaites-tu aller ?  ")
-    if reponse == '1':
-        somme_obligatoire = (0, 60, 63, 231, 899)
-        for chiffre in somme_obligatoire: 
-            librairie = Chez_Fleury_et_Bott(chiffre)
-            print(librairie)
-    
-    elif reponse == '2' :
-        djdsj
-    else :
-        dsqjdsqd
-    reponse = input("Tu es sur le Chemin de traverse.\nVeux-tu aller en 1,2 ou 3 ? ")
 
-menu()
 
 
 
@@ -135,27 +194,9 @@ def affichage(monnaie_a_rendre):
  
  
 """
-
-
 notre programme qui marche 
 """
-
-entrée = input("Bonjour sorcier/e, vous entrez dans le chemin de traverse, prêt à acheter vos fournitures ? (répondez 'oui' ou 'non')")
-if entrée == "oui" or entrée == "OUI" or entrée == "Oui" :
-    livre = input("vous entrez Chez Fleury & Bott voulez vous achetez : Le Livre des sorts et enchantements, niveau 1 de Miranda Fauconnette et Histoire de la magie de Bathilda Tourdesac ? (répondez 'oui' ou 'non')")
-    if livre == "oui" or livre == "OUI" or livre == "Oui" : 
-        argent = int(input("Combien doit-ont vous rendre ? (entrez un entier)"))
-        
-        liste_rendu_monnaie = rendu_monnaie_illimitee(argent)
-        
-        for i in dico1.keys():
-            while argent >= i:
-                dico1[i] += 1
-                argent -= i
-        for i in dico1.keys():
-            if dico1[i] > 0 :
-                print(f"le vendeur vous rend {dico1[i]} coupure.s de {i}")  
-
+menu()
 
 
 
