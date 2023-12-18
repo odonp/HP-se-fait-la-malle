@@ -56,7 +56,7 @@ dico_monnaie_illimitée = {\
 #définition des fonctions dans l'ordre d'utlilisation
 
 def menu():
-    reponse = input("Tu es sur le Chemin de traverse.\nVeux-tu aller chez Fleury et Bott (tapez 1), chez Ollivander (tapez 2) ou 3 (tapez 3? ")
+    reponse = input("Tu es sur le Chemin de traverse.\nVeux-tu aller chez Fleury et Bott (tapez 1), chez Mme Guipur (tapez 2) ou chez Ollivander (tapez 3) ? ")
     if reponse == '1':
         Chez_Fleury_et_Bott()
         '''
