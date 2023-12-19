@@ -56,14 +56,12 @@ dico_monnaie_illimitée = {\
 #définition des fonctions dans l'ordre d'utlilisation
 
 def menu():
-    reponse = input("Tu es sur le Chemin de traverse.\nVeux-tu aller chez Fleury et Bott (tapez 1), chez Ollivander (tapez 2) ou 3 (tapez 3)? ")
+    reponse = input("Bonjour sorcier/e. Tu es sur le Chemin de traverse.\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, tape 3 \nOù souhaites-tu aller ? ")
     if reponse == '1':
         somme_obligatoire = (0, 60, 63, 231, 899)
-        livre = input("Vous entrez Chez Fleury & Bott \nVoulez-vous acheter : Le Livre des sorts et enchantements, niveau 1 de Miranda Fauconnette et Histoire de la magie de Bathilda Tourdesac ? (répondez 'oui' ou 'non')")
-        if livre == "oui" or livre == "OUI" or livre == "Oui" : 
-            argent_a_rendre3 = int(input("Combien doit-ont vous rendre ? (entrez un entier)"))
+        argent_a_rendre_librairie = int(input("Combien doit-ont vous rendre ? (entrez un entier)"))
         print("\n")
-        chez_fleury_et_bott(argent_a_rendre3)
+        chez_fleury_et_bott(argent_a_rendre_librairie)
         print("\n")
         print("La consigne obligeant, voici l'affichage des sommes à rendre obligatoires:")
         for elements in somme_obligatoire:
@@ -80,9 +78,6 @@ def menu():
     #Si on répond n'importe quoi ca fait quand meme ollivander
     else :
         Chez_Ollivander()
-    reponse = input("Tu es de retour sur le Chemin de traverse.\nVeux-tu aller chez Fleury et Bott (tapez 1), chez Mme Guipur (tapez 2) ou chez Ollivander(tapez 3)?  ")
-
-
 
 def chez_fleury_et_bott(argent_a_rendre):
     
