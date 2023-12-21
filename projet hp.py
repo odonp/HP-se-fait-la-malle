@@ -177,46 +177,6 @@ def Ollivander ():
     for i in range (3):
         print(f"Je vous rends {a_rendre[i]} {paroles[i]}")
 
-'''
-Madame Guipure en cours
-'''
-
-sommes_obligatoire = (0, 8, 62, 231, 497, 842)
-
-rendu = []
-rendre2 = 0
-rendre2 = rendre
-dico_monnaie_limitée = {\
-    200: 1 ,
-    100: 3 , 
-    50: 1 ,
-    20:1 ,
-    10:1 ,
-    2:5 }
-        
-Limitation = zip(dico_monnaie_limitée.keys(), dico_monnaie_limitée.values())
-print(type(Limitation))
-
-Limitation = list(Limitation)
-    
-    rendre2 = rendre
-    while rendre > 0 or ... > 0:
-        monnaie = Limitation
-        monnaie.append(rendre)
-        if values < 0 :
-            print(f"Je suis navré nous n'avons pas assez d'argent pour vous rembourser... Nous n'avons que 590€ a vous donnez")
-        monnaie.sort(reverse = True)
-        index = monnaie.index(rendre)
-        rendre = rendre - monnaie[index + 1]
-        rendu.append(monnaie[index+1])
-    
-    for i in dico_monnaie_limitée.keys():
-            while rendre2 >= i:
-                dico_monnaie_limitée[i] += 1
-                argent_a_rendre2 -= i
-    for i in dico_monnaie_limitée.keys():
-        if dico_monnaie_illimitée[i] > 0 :
-            print(f"Le vendeur vous rend {dico_monnaie_limitée[i]} coupure.s de {i} €")
 
 
 
