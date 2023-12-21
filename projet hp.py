@@ -80,7 +80,7 @@ def menu():
             print("\n")
     
     elif reponse == '2' :
-        Guipur()
+        print(Madame_Guipure())
     
     #Si on répond n'importe quoi ca fait quand meme ollivander
     elif reponse == '3':
