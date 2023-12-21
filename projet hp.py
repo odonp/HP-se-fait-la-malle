@@ -84,15 +84,19 @@ def menu():
                 print("\n")
         else :
             reponse = input("Bonjour sorcier/e. Tu es de retour sur le Chemin de traverse.\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, tape 3 \nOù souhaites-tu aller ? ")
-
+            #pouvoir se re tp avec les nombres
     elif reponse == '2' :
         Guipur()
     
-    #Si on répond n'importe quoi ca fait quand meme ollivander
+ 
     elif reponse == '3':
         print(Ollivander())
+
     else :
-        print("Merci d'entrer un nombre entier, compris entre 1 et 3 et correspondant au bon magasion du chemin de traverse")
+        print("\nMerci d'entrer un nombre entier, compris entre 1 et 3 et correspondant au bon magasion du chemin de traverse\n")
+        reponse = input("Bonjour sorcier/e. Tu es de retour sur le Chemin de traverse.\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, tape 3 \nOù souhaites-tu aller ? ")
+        #pouvoir se re tp avec les nombres
+
         #Moyen de relancer le programme au menu 
 
 def affichage (argent_a_r, dico):
