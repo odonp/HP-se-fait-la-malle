@@ -127,7 +127,33 @@ def chez_fleury_et_bott(argent_a_rendre):
         if dico_monnaie_illimitée[i] > 0 :
             print(f"Le vendeur vous rend {dico_monnaie_illimitée[i]} coupure.s de {i} €")
    
+def Madame_Guipure(montant):
+    tiroir_caisse = {
+        200: 1,
+        100: 3,
+        50: 1,
+        20: 1,
+        10: 1,
+        5: 1,
+        2: 5
+    }
+    rendu = {}
+    for billet in sorted(tiroir_caisse.keys(), reverse=True):
+        while montant >= billet and tiroir_caisse[billet] > 0:
+            montant -= billet
+            rendu[billet] = rendu.get(billet, 0) + 1
+            tiroir_caisse[billet] -= 1
 
+    # Afficher le rendu
+    print("Rendu de monnaie :")
+    for billet, quantite in rendu.items():
+        print(f"{quantite} billet(s) de {billet} euro")
+    # Vérifier s'il manque de l'argent à rendre
+    if montant > 0:
+        print(f"Il manque {montant} euro(s) dans le tiroir caisse.")
+
+# Test du programme avec un montant de 325 euros à rendre
+Madame_Guipure(53)
 
 def Ollivander ():
     gallions = 0
