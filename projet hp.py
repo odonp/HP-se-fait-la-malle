@@ -177,7 +177,7 @@ def Ollivander ():
     a_rendre.append(noises_a_rendre)
     
     for i in range (3):
-        print(f"Je vous rends {a_rendre[i]} {paroles[i]}")
+        print(f"Ollivander vous rends {a_rendre[i]} {paroles[i]}")
 
 
 
@@ -210,9 +210,11 @@ def menu():
     
  
     elif reponse == '3':
-        print(Ollivander())
-        
-
+        print("\nVous êtes dans la boutique de Ollivander.")
+        Ollivander()
+        reponse_sortie = input("\nPour quitter la boutique et rejoindre le chemin de traverse, tapez 5. \n")
+        if reponse_sortie == '5':
+            menu_relance()
     else :
         print("\nMerci d'entrer un nombre entier, compris entre 1 et 3 et correspondant au bon magasion du chemin de traverse\n")
         
