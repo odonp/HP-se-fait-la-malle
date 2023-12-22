@@ -62,9 +62,7 @@ dico_monnaie_illimitée = {\
 
 rendre = 0
 
-gallions = 0 
-mornilles = 0
-noises = 0
+
 
 #définition des fonctions dans l'ordre d'utlilisation
 
@@ -154,7 +152,7 @@ def madame_guipure(montant):
         print(f"Il manque {montant} euro(s) dans le tiroir caisse.")
 
 
-def ollivander (gallions, mornilles, noises):
+def ollivander (gallions1, mornilles1, noises1):
     '''
     Fait le change, le calcul et une partie de l'IHM pour le magasin de ollivander
     
@@ -162,13 +160,11 @@ def ollivander (gallions, mornilles, noises):
     Sortie : 
     '''
 
-    gallions = 0
-    mornilles = 0
-    noises = 0
+
     a_rendre = []
     monnaie_magique = ["gallions","mornilles", "noises"]
     
-    somme_en_noises = (gallions * 17 * 29) + (mornilles * 29) + noises
+    somme_en_noises = (gallions1 * 17 * 29) + (mornilles1 * 29) + noises1
     gallions_a_rendre = somme_en_noises // (17*29)
     a_rendre.append(gallions_a_rendre)
     somme_en_noises -= gallions_a_rendre * (17*29)
@@ -178,8 +174,10 @@ def ollivander (gallions, mornilles, noises):
     noises_a_rendre = somme_en_noises
     a_rendre.append(noises_a_rendre)
     
-    for i in range (3):
-        print(f"ollivander vous rends {a_rendre[i]} {monnaie_magique[i]}")
+    
+    return a_rendre
+    
+    
 
 
 
@@ -217,12 +215,20 @@ def menu():
                     print("\n")
         else :
             #somme_obligatoire_chez_ollivander = [{gallions : 0 , mornilles : 0 , noises :0},{gallions : 0, mornilles : 0, noises : 654},{gallions : 0, mornilles : 23, noises : 78}, {gallions : 2 , mornilles : 11, noises : 9}, {gallions : 7 , mornilles : 531 , noises : 451}]
+            monnaie_magique = ["gallions","mornilles", "noises"]
             print("\nVous êtes dans la boutique de ollivander 🧙.")
             gallions = int(input("Combien de gallions dois-je rendre ? (Entrez une valeur)"))
             mornilles = int(input("Combien de mornilles dois-je rendre ? (Entrez une valeur) "))
             noises = int(input("Combien de noises dois-je rendre ? (Entrez une valeur) "))
-            ollivander(gallions, mornilles, noises)
-            print("\n")
+            
+            
+            valeurs_rendues = ollivander(gallions, mornilles, noises)  # Appel de la fonction ollivander et récupération des valeurs retournées
+            for i in range (3):
+                print(f"ollivander vous rends {valeurs_rendues[i]} {monnaie_magique[i]}")
+                 
+            
+            
+            '''
             reponse_somme_obligatoire_ollivander = input("La consigne obligeant, tapez 1 si vous voulez voir l'affichage des sommes à rendre obligatoires. Sinon tapez n'importe quel nombre pour sortir de chez ollivander. ")
             
             if reponse_somme_obligatoire_ollivander == '1' : 
@@ -236,6 +242,7 @@ def menu():
                     
                     ollivander(elements_3)
                     print("\n")
+                    '''
         reponse = input("Te revoilà sur le Chemin de traverse !\n\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez ollivander, fabricant de baguettes magiques, tape 3 \nSi tu souhaites quitter le chemin de traverse,  \nOù souhaites-tu aller ? ")
     print("\nVous quittez le chemin de traverse 🏦, à bientôt 👋!")      
 
