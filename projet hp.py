@@ -19,7 +19,7 @@ VERSION:
 
 
 DATE DE DERNIERE REVISION:
-
+22/12/2023
 
 
 ADRESSE GITHUB: 
@@ -28,6 +28,8 @@ https://github.com/odonp/HP-se-fait-la-malle
 """
 
 #Moyen à la fin du programe de tout quitter ("si vous voulez partir, tapez ... " et ca quitte)
+#affichage somme consigne 2)
+#reduire les chaines de caractère pour la pep_8
 
 
 # coding: utf-8
@@ -92,7 +94,6 @@ def chez_fleury_et_bott(argent_a_rendre):
     Entrée : 
 
     Sortie : 
-    
     
     '''
     argent_rendu = []
@@ -187,7 +188,7 @@ def menu():
     Entré : 
     Sortie 
     '''
-    reponse = input("Bonjour sorcier/e. Tu es sur le Chemin de traverse.\n\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, tape 3 \nOù souhaites-tu aller ? ")
+    reponse = input("Bonjour sorcier/e. Tu es sur le Chemin de traverse.\n\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, tape 3 \nSi tu souhaites quitter le chemin de traverse, tape 4 \nOù souhaites-tu aller ? ")
     if reponse == '1':
         somme_obligatoire = (0, 60, 63, 231, 899)
         argent_a_rendre_librairie = int(input("\nVous êtes dans le magasin.\nCombien doit-ont vous rendre ? (entrez un entier)"))
@@ -215,6 +216,11 @@ def menu():
         reponse_sortie = input("\nPour quitter la boutique et rejoindre le chemin de traverse, tapez 5. \n")
         if reponse_sortie == '5':
             menu_relance()
+    
+    elif reponse == '4':
+        print("\nVous quittez le chemin de traverse, à bientôt !")
+        #Quittez le programme 
+    
     else :
         print("\nMerci d'entrer un nombre entier, compris entre 1 et 3 et correspondant au bon magasion du chemin de traverse\n")
         
