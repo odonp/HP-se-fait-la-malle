@@ -88,7 +88,7 @@ def affichage (argent_a_r, dico):
             print(f"Le commerçant vous rend {dico[i]} coupure.s de {i} €")
 
 
-def chez_fleury_et_bott(argent_a_rendre):
+def chez_fleury_et_bott(somme_a_rendre_chez_fleury_et_bott):
     '''
     Réalise le rendu de monnaie et une partie de l'IHM pour la boutique de fleury et bott
 
@@ -97,9 +97,9 @@ def chez_fleury_et_bott(argent_a_rendre):
     Sortie : 
     
     '''
-    argent_rendu = []
-    argent_a_rendre2 = 0
-    argent_a_rendre2 = argent_a_rendre
+    argent_a_rendre_chez_fleury_et_bott = []
+    somme_a_rendre_initiale_chez_fleury_et_bott = 0
+    somme_a_rendre_initiale_chez_fleury_et_bott = somme_a_rendre_chez_fleury_et_bott
     dico_monnaie_illimitée = {\
         500 : 0 ,
         200:0 ,
@@ -111,16 +111,16 @@ def chez_fleury_et_bott(argent_a_rendre):
         2:0   ,
         1:0 }
 
-    argent_a_rendre2 = argent_a_rendre
-    while argent_a_rendre > 0 :
-        monnaie = [500,200,100,50,20,10,5,2,1]
-        monnaie.append(argent_a_rendre)
-        monnaie.sort(reverse = True)
-        index = monnaie.index(argent_a_rendre)
-        argent_a_rendre = argent_a_rendre - monnaie[index + 1]
-        argent_rendu.append(monnaie[index+1])
+    somme_a_rendre_initiale__chez_fleury_et_bott = somme_a_rendre_chez_fleury_et_bott
+    while somme_a_rendre_chez_fleury_et_bott > 0 :
+        tiroir_caisse_chez_fleury_et_bott = [500,200,100,50,20,10,5,2,1]
+        tiroir_caisse_chez_fleury_et_bott.append(somme_a_rendre_chez_fleury_et_bott)
+        tiroir_caisse_chez_fleury_et_bott.sort(reverse = True)
+        index = tiroir_caisse_chez_fleury_et_bott.index(somme_a_rendre_chez_fleury_et_bott)
+        somme_a_rendre_chez_fleury_et_bott = somme_a_rendre_chez_fleury_et_bott - tiroir_caisse_chez_fleury_et_bott[index + 1]
+        argent_a_rendre_chez_fleury_et_bott.append(tiroir_caisse_chez_fleury_et_bott[index+1])
     
-    affichage(argent_a_rendre2, dico_monnaie_illimitée)
+    affichage(somme_a_rendre_initiale_chez_fleury_et_bott, dico_monnaie_illimitée)
 
 def Madame_Guipure(montant):
     somme_obligatoire_2 = (0, 17, 68, 231, 497, 842)
@@ -187,7 +187,7 @@ def menu():
     Entré : 
     Sortie 
     '''
-    reponse = input("Bonjour sorcier/e. Tu es sur le Chemin de traverse.\n\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, tape 3 \nSi tu souhaites quitter le chemin de traverse, tape n'importe quel autre chiffre \nOù souhaites-tu aller ? ")   
+    reponse = input("Bonjour sorcier/e. Tu es sur le Chemin de traverse.\n\nSi tu souhaites aller chez Fleury et Bott, librairie de sorciers, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorciers, tape 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, tape 3 \nSi tu souhaites quitter le chemin de traverse, tape sur n'importe quel autre chiffre \nOù souhaites-tu aller ? ")   
     while reponse=='1' or reponse=='2' or reponse=='3' :  
         if reponse == '1':
             somme_obligatoire = (0, 60, 63, 231, 899)
@@ -195,15 +195,15 @@ def menu():
             print("\n")
             chez_fleury_et_bott(argent_a_rendre_librairie)
             print("\n")
-            reponse_somme_obligatoire_flury = input("La consigne obligeant, tapez 9 si vous voulez voir l'affichage des sommes à rendre obligatoires. Sinon tapez n'importe quel nombre pour sortir de chez Fleury et Bott. ")
-            if reponse_somme_obligatoire_flury == '9':
+            reponse_somme_obligatoire_fleury = input("La consigne obligeant, tapez 9 si vous voulez voir l'affichage des sommes à rendre obligatoires. Sinon tapez n'importe quel nombre pour sortir de chez Fleury et Bott. ")
+            if reponse_somme_obligatoire_fleury == '9':
                 for elements in somme_obligatoire:
                     print(f"Rendu monnaie pour {elements}€")
                     chez_fleury_et_bott(elements)
                     print("\n")
         elif reponse == '2' :
             somme_obligatoire_2 = (0, 17, 68, 231, 497, 842)
-            argent_a_rendre_guipure = int(input("\nVous êtes dans le magasin de Mme guipure.\nCombien doit-ont vous rendre ? (entrez un entier)"))
+            argent_a_rendre_guipure = int(input("\nVous êtes dans le magasin de Mme guipure.\nCombien doit-on vous rendre ? (entrez un entier)"))
             print("\n")
             Madame_Guipure(argent_a_rendre_guipure)
             print("\n")
@@ -214,9 +214,17 @@ def menu():
                     Madame_Guipure(elements_2)
                     print("\n")
         else :
+            somme_obligatoire_chez_ollivander = [{Gallions : 0 , Mornilles : 0 , Noises :0},{Gallions : 0, Mornilles : 0, Noises : 654},{Gallions : 0, Mornilles : 23, Noises : 78}, {Gallions : 2 , Mornilles : 11, Noises : 9}, {Gallions : 7 , Mornilles : 531 , Noises : 451}]
             print("\nVous êtes dans la boutique de Ollivander.")
             Ollivander()
-        reponse = input("Bonjour sorcier/e. Tu es sur le Chemin de traverse.\n\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, tape 3 \nSi tu souhaites quitter le chemin de traverse,  \nOù souhaites-tu aller ? ")
+            print("\n")
+            reponse_somme_obligatoire_ollivander = input("La consigne obligeant, tapez 8 si vous voulez voir l'affichage des sommes à rendre obligatoires. Sinon tapez n'importe quel nombre pour sortir de chez Ollivander. ")
+            if reponse_somme_obligatoire_ollivander == '8' : 
+                for elements_3 in somme_obligatoire_chez_ollivander :
+                    print(f"Rendu monnaie pour {elements_3}€")
+                    Ollivander(elements_3)
+                    print("\n")
+        reponse = input("Te revoilà sur le Chemin de traverse !\n\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, tape 3 \nSi tu souhaites quitter le chemin de traverse,  \nOù souhaites-tu aller ? ")
     print("\nVous quittez le chemin de traverse, à bientôt !")      
 
 """
@@ -224,3 +232,6 @@ PROGRAMME PRINCIPAL
 """
 
 menu()
+tuple_1 = (0, 0, 0)
+a, b, c = tuple_1
+monnaie_obligatoire_chez_ollivander = [{Gallions : 0 , Mornilles : 0 , Noises :0},{Gallions : 0, Mornilles : 0, Noises : 654},{Gallions : 0, Mornilles : 23, Noises : 78}, {Gallions : 2 , Mornilles : 11, Noises : 9}, {Gallions : 7 , Mornilles : 531 , Noises : 451}]
