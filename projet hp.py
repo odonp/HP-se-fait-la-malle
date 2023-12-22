@@ -160,10 +160,10 @@ def madame_guipure(montant):
 def ollivander (gallions1, mornilles1, noises1):
     
     '''
-    Réalise le change, un calcul pour savoir et une partie de l'IHM pour le magasin de ollivander
+    Réalise la conversion pour rendre le moins de pièces possibles en monnaie magique (gallions, noises et mornilles)
         
-    Entrée : Nombre de gallions, nombre de mornilles et nombre de noises
-    Sortie : Minimun de pièces possible
+    Entrée : Nombre de gallions, nombre de mornilles et nombre de noises (Argent obligatoire ou argent choisi par l'utilisateur) des entiers 
+    Sortie : Minimun de pièces possible, sous forme de liste car résultat traité par une autre fonction après
     '''
 
     a_rendre = []
@@ -182,22 +182,25 @@ def ollivander (gallions1, mornilles1, noises1):
     
     return a_rendre
     
-def affichage_ollivander(a, b, c):
+def affichage_ollivander(nbre_entier_num1, nbre_entier_num2, nbre_entier_num3):
     '''
     Affiche les valeurs de gallions, mornilles et noises que Ollivander rend
     
     Entrée : Des nombres entiers
     Sortie : Des chaines de caractères
     '''
-    valeurs_rendues_fonction = ollivander(a, b, c)
+    valeurs_rendues_fonction = ollivander(nbre_entier_num1, nbre_entier_num2, nbre_entier_num3)
     for i in range (3):
         print(f"Ollivander vous rends {valeurs_rendues_fonction[i]} {monnaie_magique[i]}")
+
 
 
 
 def menu():
     '''
     Régie tout le programme en faisant appel aux fonctions
+
+
     '''
     reponse = input("\nBonjour sorcier/n. Tu es sur le Chemin de traverse.\n\n- Si tu souhaites aller chez Fleury et Bott, librairie de sorciers 📚, tape 1 \n\n- Si tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier\es 🧥, tape 2 \n\n- Si tu souhaites aller chez ollivander, fabricant de baguettes magiques 🧙, tape 3 \n\n- Si tu souhaites quitter le chemin de traverse 🏦, tape sur n'importe quel autre chiffre \n\nOù souhaites-tu aller ? ")   
     while reponse=='1' or reponse=='2' or reponse=='3' :  
