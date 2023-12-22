@@ -177,7 +177,7 @@ def menu():
                     print("\n")
             reponse_menu_fleuryetbott = input("\nSi vous voulez entrer des valeurs manuellement, tapez 6. \nSinon, pour quitter le magasin et retourner au chemin de traverse, tapez n'importe quel nombre ou caractère ")        
             if reponse_menu_fleuryetbott == '6':
-                argent_a_rendre_librairie = int(input("\nCombien doit-ont vous rendre ? (entrez un entier)  "))
+                argent_a_rendre_librairie = int(input("\nCombien doit-on vous rendre ? (entrez un entier)  "))
                 print("\n")
                 chez_fleury_et_bott(argent_a_rendre_librairie)
                 print("\n")      
