@@ -121,7 +121,7 @@ def chez_fleury_et_bott(argent_a_rendre):
     
     affichage(argent_a_rendre2, dico_monnaie_illimitée)
 
-def Madame_Guipure(montant):
+def madame_guipure(montant):
     tiroir_caisse = {
         200: 1,
         100: 3,
@@ -146,7 +146,7 @@ def Madame_Guipure(montant):
     if montant > 0:
         print(f"Il manque {montant} euro(s) dans le tiroir caisse.")
 # Test du programme avec un montant de 325 euros à rendre
-#Madame_Guipure(53)
+#madame_guipure(53)
 
 
 
@@ -207,7 +207,7 @@ def menu():
             menu_relance()
     elif reponse == '2' :
         argent_a_rendre_guipure = int(input("\nVous êtes dans le magasin de Mme guipure.\nCombien doit-ont vous rendre ? (entrez un entier)"))
-        print(Madame_Guipure(argent_a_rendre_guipure))
+        print(madame_guipure(argent_a_rendre_guipure))
     
  
     elif reponse == '3':
