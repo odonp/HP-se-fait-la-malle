@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-
-"""
+'''
 Harry Potter se fait la malle
 
 REGLES:
@@ -22,7 +21,7 @@ DATE DE DERNIERE REVISION:
 
 ADRESSE GITHUB: 
 https://github.com/odonp/HP-se-fait-la-malle
-
+'''
 # coding: utf-8
 
 #import des modules
