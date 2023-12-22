@@ -175,7 +175,7 @@ def menu():
                     # Appel de la fonction Chez Fleury et Bott
                     chez_fleury_et_bott(elements)
                     print("\n")
-            reponse_menu_fleuryetbott = input("\nSi vous voulez entrer des valeurs manuellement, tapez 6. \nSinon, pour quitter le magasin et retourner au chemin de traverse, tapez n'importe quel nombre ou caractère")        
+            reponse_menu_fleuryetbott = input("\nSi vous voulez entrer des valeurs manuellement, tapez 6. \nSinon, pour quitter le magasin et retourner au chemin de traverse, tapez n'importe quel nombre ou caractère ")        
             if reponse_menu_fleuryetbott == '6':
                 argent_a_rendre_librairie = int(input("\nCombien doit-ont vous rendre ? (entrez un entier)  "))
                 print("\n")
