@@ -206,9 +206,9 @@ def menu():
                     print(f"Rendu monnaie pour {elements}€")
                     chez_fleury_et_bott(elements)
                     print("\n")
-            reponse_menu_fleuryetbott = input("\nSi vous voulez entrer des valeurs manuellement, tapez 6. Sinon, pour quitter le magasin et retourner au chemin de traverse, tapez n'importe quel nombre ou caractère")        
+            reponse_menu_fleuryetbott = input("\nSi vous voulez entrer des valeurs manuellement, tapez 6. \nSinon, pour quitter le magasin et retourner au chemin de traverse, tapez n'importe quel nombre ou caractère")        
             if reponse_menu_fleuryetbott == '6':
-                argent_a_rendre_librairie = int(input("\nCombien doit-ont vous rendre ? (entrez un entier)"))
+                argent_a_rendre_librairie = int(input("\nCombien doit-ont vous rendre ? (entrez un entier)  "))
                 print("\n")
                 chez_fleury_et_bott(argent_a_rendre_librairie)
                 print("\n")
@@ -221,9 +221,9 @@ def menu():
                     print(f"Rendu monnaie pour {elements_somme_obligatoire_guipure}€")
                     madame_guipure(elements_somme_obligatoire_guipure)
                     print("\n")
-            reponse_menu_guipure = input("\nSi vous voulez entrer des valeurs manuellement, tapez 8. Sinon, pour quitter le magasin et retourner au chemin de traverse, tapez n'importe quel nombre ou caractère. ")        
+            reponse_menu_guipure = input("\nSi vous voulez entrer des valeurs manuellement, tapez 8. \nSinon, pour quitter le magasin et retourner au chemin de traverse, tapez n'importe quel nombre ou caractère. ")        
             if reponse_menu_guipure == '8':
-                argent_a_rendre_guipure = int(input("\nCombien doit-on vous rendre ? (entrez un entier)"))
+                argent_a_rendre_guipure = int(input("\nCombien doit-on vous rendre ? (entrez un entier)"  ))
                 print("\n")
                 madame_guipure(argent_a_rendre_guipure)
                 print("\n")
@@ -251,11 +251,11 @@ def menu():
                 
                 
             #Entrée manuelle des valeurs
-            reponse_menu_ollivander = input("\nSi vous voulez entrer des valeurs manuellement, tapez 7. Sinon, pour quitter le magasin et retourner au chemin de traverse, tapez n'importe quel nombre ou caractère")
+            reponse_menu_ollivander = input("\nSi vous voulez entrer des valeurs manuellement, tapez 7. \nSinon, pour quitter le magasin et retourner au chemin de traverse, tapez n'importe quel nombre ou caractère")
             if reponse_menu_ollivander == '7':
-                gallions = int(input("Combien de gallions dois-je rendre ? (Entrez une valeur)"))
-                mornilles = int(input("Combien de mornilles dois-je rendre ? (Entrez une valeur) "))
-                noises = int(input("Combien de noises dois-je rendre ? (Entrez une valeur) "))
+                gallions = int(input("Combien de gallions dois-je rendre ? (Entrez une valeur)"  ))
+                mornilles = int(input("Combien de mornilles dois-je rendre ? (Entrez une valeur) "  ))
+                noises = int(input("Combien de noises dois-je rendre ? (Entrez une valeur) "  ))
                 affichage_ollivander(gallions, mornilles, noises)
                 
                 
@@ -271,3 +271,4 @@ PROGRAMME PRINCIPAL
 """
 
 menu()
+
