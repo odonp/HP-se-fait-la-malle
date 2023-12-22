@@ -1,16 +1,11 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Fri Dec 22 11:20:07 2023
-
-@author: LOUBNA.ZBITOU
-"""
 
 """
 Harry Potter se fait la malle
 
 
 REGLES:
-
+Bienvenue sur le chemin de traverse, vous incarnez un sorcier qui souhaite faire ses courses de fournitures scolaires avant d'intégrer l'école de Poudlard.
 
 AUTEURS:
 Valentine
@@ -67,6 +62,10 @@ dico_monnaie_illimitée = {\
 
 rendre = 0
 
+gallions = 0 
+mornilles = 0
+noises = 0
+
 #définition des fonctions dans l'ordre d'utlilisation
 
 def affichage (argent_a_r, dico):
@@ -122,6 +121,8 @@ def chez_fleury_et_bott(somme_a_rendre_chez_fleury_et_bott):
     
     affichage(somme_a_rendre_initiale_chez_fleury_et_bott, dico_monnaie_illimitée)
 
+
+
 def madame_guipure(montant):
     somme_obligatoire_chez_madame_guipure = (0, 17, 68, 231, 497, 842)
     tiroir_caisse_chez_madame_guipure = {
@@ -140,19 +141,22 @@ def madame_guipure(montant):
         for espece in sorted(tiroir_caisse_chez_madame_guipure.keys(), reverse=True):
             while montant >= espece and tiroir_caisse_chez_madame_guipure[espece] > 0:
                 montant -= espece
-                rendu[espece] = rendu.get(espece, 0) + 1
+                if espece in rendu:
+                    rendu[espece] += 1
+                else:
+                    rendu[espece] = 1
                 tiroir_caisse_chez_madame_guipure[espece] -= 1
 
         for espece, quantite in rendu.items():
-            
             print(f"{quantite} coupure(s) de {espece} €")
         # Vérifier s'il manque de l'argent à rendre
     if montant > 0:
         print(f"Il manque {montant} euro(s) dans le tiroir caisse.")
 
-def Ollivander ():
+
+def ollivander (gallions, mornilles, noises):
     '''
-    Fait le change, le calcul et une partie de l'IHM pour le magasin de Ollivander
+    Fait le change, le calcul et une partie de l'IHM pour le magasin de ollivander
     
     Entrée : 
     Sortie : 
@@ -162,10 +166,8 @@ def Ollivander ():
     mornilles = 0
     noises = 0
     a_rendre = []
-    monnaie_magique = ["Gallions","Mornilles", "Noises"]
-    gallions = int(input("Combien de gallions dois-je rendre ? (Entrez une valeur)"))
-    mornilles = int(input("Combien de mornilles dois-je rendre ? (Entrez une valeur) "))
-    noises = int(input("Combien de noises dois-je rendre ? (Entrez une valeur) "))
+    monnaie_magique = ["gallions","mornilles", "noises"]
+    
     somme_en_noises = (gallions * 17 * 29) + (mornilles * 29) + noises
     gallions_a_rendre = somme_en_noises // (17*29)
     a_rendre.append(gallions_a_rendre)
@@ -177,7 +179,7 @@ def Ollivander ():
     a_rendre.append(noises_a_rendre)
     
     for i in range (3):
-        print(f"Ollivander vous rends {a_rendre[i]} {monnaie_magique[i]}")
+        print(f"ollivander vous rends {a_rendre[i]} {monnaie_magique[i]}")
 
 
 
@@ -187,7 +189,7 @@ def menu():
     Entré : 
     Sortie 
     '''
-    reponse = input("Bonjour sorcier/e. Tu es sur le Chemin de traverse.\n\n- Si tu souhaites aller chez Fleury et Bott, librairie de sorciers 📚, tape 1 \n\n- Si tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier\es 🧥, tape 2 \n\n- Si tu souhaites aller chez Ollivander, fabricant de baguettes magiques 🧙, tape 3 \n\n- Si tu souhaites quitter le chemin de traverse 🏦, tape sur n'importe quel autre chiffre \n\nOù souhaites-tu aller ? ")   
+    reponse = input("Bonjour sorcier/n. Tu es sur le Chemin de traverse.\n\n- Si tu souhaites aller chez Fleury et Bott, librairie de sorciers 📚, tape 1 \n\n- Si tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier\es 🧥, tape 2 \n\n- Si tu souhaites aller chez ollivander, fabricant de baguettes magiques 🧙, tape 3 \n\n- Si tu souhaites quitter le chemin de traverse 🏦, tape sur n'importe quel autre chiffre \n\nOù souhaites-tu aller ? ")   
     while reponse=='1' or reponse=='2' or reponse=='3' :  
         if reponse == '1':
             somme_obligatoire_chez_fleury_et_bott = (0, 60, 63, 231, 899)
@@ -214,17 +216,27 @@ def menu():
                     madame_guipure(elements_2)
                     print("\n")
         else :
-            somme_obligatoire_chez_ollivander = [{Gallions : 0 , Mornilles : 0 , Noises :0},{Gallions : 0, Mornilles : 0, Noises : 654},{Gallions : 0, Mornilles : 23, Noises : 78}, {Gallions : 2 , Mornilles : 11, Noises : 9}, {Gallions : 7 , Mornilles : 531 , Noises : 451}]
-            print("\nVous êtes dans la boutique de Ollivander 🧙.")
-            Ollivander()
+            #somme_obligatoire_chez_ollivander = [{gallions : 0 , mornilles : 0 , noises :0},{gallions : 0, mornilles : 0, noises : 654},{gallions : 0, mornilles : 23, noises : 78}, {gallions : 2 , mornilles : 11, noises : 9}, {gallions : 7 , mornilles : 531 , noises : 451}]
+            print("\nVous êtes dans la boutique de ollivander 🧙.")
+            gallions = int(input("Combien de gallions dois-je rendre ? (Entrez une valeur)"))
+            mornilles = int(input("Combien de mornilles dois-je rendre ? (Entrez une valeur) "))
+            noises = int(input("Combien de noises dois-je rendre ? (Entrez une valeur) "))
+            ollivander(gallions, mornilles, noises)
             print("\n")
-            reponse_somme_obligatoire_ollivander = input("La consigne obligeant, tapez 1 si vous voulez voir l'affichage des sommes à rendre obligatoires. Sinon tapez n'importe quel nombre pour sortir de chez Ollivander. ")
+            reponse_somme_obligatoire_ollivander = input("La consigne obligeant, tapez 1 si vous voulez voir l'affichage des sommes à rendre obligatoires. Sinon tapez n'importe quel nombre pour sortir de chez ollivander. ")
+            
             if reponse_somme_obligatoire_ollivander == '1' : 
                 for elements_3 in somme_obligatoire_chez_ollivander :
                     print(f"Rendu monnaie pour {elements_3}€")
-                    Ollivander(elements_3)
+                    for i in elements_3.keys : 
+                        liste_ollivander = []
+                        liste_ollivander.append(i)
+                    print(liste_ollivander)
+                    ollivander()
+                    
+                    ollivander(elements_3)
                     print("\n")
-        reponse = input("Te revoilà sur le Chemin de traverse !\n\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, tape 3 \nSi tu souhaites quitter le chemin de traverse,  \nOù souhaites-tu aller ? ")
+        reponse = input("Te revoilà sur le Chemin de traverse !\n\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez ollivander, fabricant de baguettes magiques, tape 3 \nSi tu souhaites quitter le chemin de traverse,  \nOù souhaites-tu aller ? ")
     print("\nVous quittez le chemin de traverse 🏦, à bientôt 👋!")      
 
 """
@@ -232,11 +244,13 @@ PROGRAMME PRINCIPAL
 """
 
 menu()
+'''
 tuple_1 = (0, 0, 0)
 a, b, c = tuple_1
-monnaie_obligatoire_chez_ollivander = [{Gallions : 0 , Mornilles : 0 , Noises :0},{Gallions : 0, Mornilles : 0, Noises : 654},{Gallions : 0, Mornilles : 23, Noises : 78}, {Gallions : 2 , Mornilles : 11, Noises : 9}, {Gallions : 7 , Mornilles : 531 , Noises : 451}]
+monnaie_obligatoire_chez_ollivander = [{gallions : 0 , mornilles : 0 , noises :0},{gallions : 0, mornilles : 0, noises : 654},{gallions : 0, mornilles : 23, noises : 78}, {gallions : 2 , mornilles : 11, noises : 9}, {gallions : 7 , mornilles : 531 , noises : 451}]
 
 menu()
 tuple_1 = (0, 0, 0)
 a, b, c = tuple_1
-monnaie_obligatoire_chez_ollivander = [{Gallions : 0 , Mornilles : 0 , Noises :0},{Gallions : 0, Mornilles : 0, Noises : 654},{Gallions : 0, Mornilles : 23, Noises : 78}, {Gallions : 2 , Mornilles : 11, Noises : 9}, {Gallions : 7 , Mornilles : 531 , Noises : 451}]
+monnaie_obligatoire_chez_ollivander = [{gallions : 0 , mornilles : 0 , noises :0},{gallions : 0, mornilles : 0, noises : 654},{gallions : 0, mornilles : 23, noises : 78}, {gallions : 2 , mornilles : 11, noises : 9}, {gallions : 7 , mornilles : 531 , noises : 451}]
+'''
