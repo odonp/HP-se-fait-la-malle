@@ -61,44 +61,11 @@ rendre = 0
 #définition des fonctions dans l'ordre d'utlilisation
 
 
+def menu_relance() :
+    menu()
 
 
-def menu():
-    '''
-    Régie tout le programme en faisant appel aux fonctions
-    Entré : 
-    Sortie 
-    '''
-    reponse = input("Bonjour sorcier/e. Tu es sur le Chemin de traverse.\n\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, tape 3 \nOù souhaites-tu aller ? ")
-    if reponse == '1':
-        somme_obligatoire = (0, 60, 63, 231, 899)
-        argent_a_rendre_librairie = int(input("\nVous êtes dans le magasin.\nCombien doit-ont vous rendre ? (entrez un entier)"))
-        print("\n")
-        chez_fleury_et_bott(argent_a_rendre_librairie)
-        print("\n")
-        reponse_somme_obligatoire_flury = input("La consigne obligeant, tapez 9 si vous voulez voir l'affichage des sommes à rendre obligatoires. Sinon tapez n'importe quel nombre pour sortir de chez Fleury et Bott. ")
-        if reponse_somme_obligatoire_flury == '9':
-            for elements in somme_obligatoire:
-                print(f"Rendu monnaie pour {elements}€")
-                chez_fleury_et_bott(elements)
-                print("\n")
-        else :
-            reponse = input("Bonjour sorcier/e. Tu es de retour sur le Chemin de traverse.\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, tape 3 \nOù souhaites-tu aller ? ")
-            #pouvoir se re tp avec les nombres
-    elif reponse == '2' :
-        argent_a_rendre_guipure = int(input("\nVous êtes dans le magasin de Mme guipure.\nCombien doit-ont vous rendre ? (entrez un entier)"))
-        print(Madame_Guipure(argent_a_rendre_guipure))
-    
- 
-    elif reponse == '3':
-        print(Ollivander())
 
-    else :
-        print("\nMerci d'entrer un nombre entier, compris entre 1 et 3 et correspondant au bon magasion du chemin de traverse\n")
-        reponse = input("Bonjour sorcier/e. Tu es de retour sur le Chemin de traverse.\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, tape 3 \nOù souhaites-tu aller ? ")
-        #pouvoir se re tp avec les nombres
-
-        #Moyen de relancer le programme au menu 
 
 def affichage (argent_a_r, dico):
     '''
@@ -211,6 +178,46 @@ def Ollivander ():
     
     for i in range (3):
         print(f"Je vous rends {a_rendre[i]} {paroles[i]}")
+
+
+
+def menu():
+    '''
+    Régie tout le programme en faisant appel aux fonctions
+    Entré : 
+    Sortie 
+    '''
+    reponse = input("Bonjour sorcier/e. Tu es sur le Chemin de traverse.\n\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, tape 3 \nOù souhaites-tu aller ? ")
+    if reponse == '1':
+        somme_obligatoire = (0, 60, 63, 231, 899)
+        argent_a_rendre_librairie = int(input("\nVous êtes dans le magasin.\nCombien doit-ont vous rendre ? (entrez un entier)"))
+        print("\n")
+        chez_fleury_et_bott(argent_a_rendre_librairie)
+        print("\n")
+        reponse_somme_obligatoire_flury = input("La consigne obligeant, tapez 9 si vous voulez voir l'affichage des sommes à rendre obligatoires. Sinon tapez n'importe quel nombre pour sortir de chez Fleury et Bott. ")
+        if reponse_somme_obligatoire_flury == '9':
+            for elements in somme_obligatoire:
+                print(f"Rendu monnaie pour {elements}€")
+                chez_fleury_et_bott(elements)
+                print("\n")
+        else :
+            
+            
+            menu_relance()
+    elif reponse == '2' :
+        argent_a_rendre_guipure = int(input("\nVous êtes dans le magasin de Mme guipure.\nCombien doit-ont vous rendre ? (entrez un entier)"))
+        print(Madame_Guipure(argent_a_rendre_guipure))
+    
+ 
+    elif reponse == '3':
+        print(Ollivander())
+        
+
+    else :
+        print("\nMerci d'entrer un nombre entier, compris entre 1 et 3 et correspondant au bon magasion du chemin de traverse\n")
+        
+        menu_relance()
+        
 
 
 
