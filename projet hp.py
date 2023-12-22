@@ -122,9 +122,9 @@ def chez_fleury_et_bott(somme_a_rendre_chez_fleury_et_bott):
     
     affichage(somme_a_rendre_initiale_chez_fleury_et_bott, dico_monnaie_illimitée)
 
-def Madame_Guipure(montant):
-    somme_obligatoire_2 = (0, 17, 68, 231, 497, 842)
-    tiroir_caisse = {
+def madame_guipure(montant):
+    somme_obligatoire_chez_madame_guipure = (0, 17, 68, 231, 497, 842)
+    tiroir_caisse_chez_madame_guipure = {
         200: 1,
         100: 3,
         50: 1,
@@ -134,18 +134,18 @@ def Madame_Guipure(montant):
         2: 5
     }
     print("Rendu de monnaie :")
-    for element in range(len(somme_obligatoire_2)):
+    for element in range(len(somme_obligatoire_chez_madame_guipure)):
         rendu = {}
         
-        for billet in sorted(tiroir_caisse.keys(), reverse=True):
-            while montant >= billet and tiroir_caisse[billet] > 0:
-                montant -= billet
-                rendu[billet] = rendu.get(billet, 0) + 1
-                tiroir_caisse[billet] -= 1
+        for espece in sorted(tiroir_caisse_chez_madame_guipure.keys(), reverse=True):
+            while montant >= espece and tiroir_caisse_chez_madame_guipure[espece] > 0:
+                montant -= espece
+                rendu[espece] = rendu.get(espece, 0) + 1
+                tiroir_caisse_chez_madame_guipure[espece] -= 1
 
-        for billet, quantite in rendu.items():
+        for espece, quantite in rendu.items():
             
-            print(f"{quantite} coupure(s) de {billet} €")
+            print(f"{quantite} coupure(s) de {espece} €")
         # Vérifier s'il manque de l'argent à rendre
     if montant > 0:
         print(f"Il manque {montant} euro(s) dans le tiroir caisse.")
@@ -162,7 +162,7 @@ def Ollivander ():
     mornilles = 0
     noises = 0
     a_rendre = []
-    paroles = ["Gallions","Mornilles", "Noises"]
+    monnaie_magique = ["Gallions","Mornilles", "Noises"]
     gallions = int(input("Combien de gallions dois-je rendre ? (Entrez une valeur)"))
     mornilles = int(input("Combien de mornilles dois-je rendre ? (Entrez une valeur) "))
     noises = int(input("Combien de noises dois-je rendre ? (Entrez une valeur) "))
@@ -177,7 +177,7 @@ def Ollivander ():
     a_rendre.append(noises_a_rendre)
     
     for i in range (3):
-        print(f"Ollivander vous rends {a_rendre[i]} {paroles[i]}")
+        print(f"Ollivander vous rends {a_rendre[i]} {monnaie_magique[i]}")
 
 
 
@@ -187,49 +187,54 @@ def menu():
     Entré : 
     Sortie 
     '''
-    reponse = input("Bonjour sorcier/e. Tu es sur le Chemin de traverse.\n\nSi tu souhaites aller chez Fleury et Bott, librairie de sorciers, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorciers, tape 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, tape 3 \nSi tu souhaites quitter le chemin de traverse, tape sur n'importe quel autre chiffre \nOù souhaites-tu aller ? ")   
+    reponse = input("Bonjour sorcier/e. Tu es sur le Chemin de traverse.\n\n- Si tu souhaites aller chez Fleury et Bott, librairie de sorciers 📚, tape 1 \n\n- Si tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier\es 🧥, tape 2 \n\n- Si tu souhaites aller chez Ollivander, fabricant de baguettes magiques 🧙, tape 3 \n\n- Si tu souhaites quitter le chemin de traverse 🏦, tape sur n'importe quel autre chiffre \n\nOù souhaites-tu aller ? ")   
     while reponse=='1' or reponse=='2' or reponse=='3' :  
         if reponse == '1':
-            somme_obligatoire = (0, 60, 63, 231, 899)
-            argent_a_rendre_librairie = int(input("\nVous êtes dans le magasin.\nCombien doit-ont vous rendre ? (entrez un entier)"))
+            somme_obligatoire_chez_fleury_et_bott = (0, 60, 63, 231, 899)
+            argent_a_rendre_librairie = int(input("\nVous êtes dans le magasin de Fleury et Bott📚.\n\nCombien doit-ont vous rendre ? (entrez un entier)"))
             print("\n")
             chez_fleury_et_bott(argent_a_rendre_librairie)
             print("\n")
-            reponse_somme_obligatoire_fleury = input("La consigne obligeant, tapez 9 si vous voulez voir l'affichage des sommes à rendre obligatoires. Sinon tapez n'importe quel nombre pour sortir de chez Fleury et Bott. ")
-            if reponse_somme_obligatoire_fleury == '9':
-                for elements in somme_obligatoire:
+            reponse_somme_obligatoire_fleury = input("La consigne obligeant, tapez 1 si vous voulez voir l'affichage des sommes à rendre obligatoires.\nSinon tapez n'importe quel nombre pour sortir de chez Fleury et Bott. ")
+            if reponse_somme_obligatoire_fleury == '1':
+                for elements in somme_obligatoire_chez_fleury_et_bott:
                     print(f"Rendu monnaie pour {elements}€")
                     chez_fleury_et_bott(elements)
                     print("\n")
         elif reponse == '2' :
-            somme_obligatoire_2 = (0, 17, 68, 231, 497, 842)
-            argent_a_rendre_guipure = int(input("\nVous êtes dans le magasin de Mme guipure.\nCombien doit-on vous rendre ? (entrez un entier)"))
+            somme_obligatoire_madame_guipure = (0, 17, 68, 231, 497, 842)
+            argent_a_rendre_guipure = int(input("\nVous êtes dans le magasin de Mme guipure 🧥.\n\nCombien doit-on vous rendre ? (entrez un entier)"))
             print("\n")
-            Madame_Guipure(argent_a_rendre_guipure)
+            madame_guipure(argent_a_rendre_guipure)
             print("\n")
-            reponse_somme_obligatoire_guipure = input("La consigne obligeant, tapez 5 si vous voulez voir l'affichage des sommes à rendre obligatoires. Sinon tapez n'importe quel nombre pour sortir de chez Madame Guipure. ")
-            if reponse_somme_obligatoire_guipure == '5':
-                for elements_2 in somme_obligatoire_2:
+            reponse_somme_obligatoire_guipure = input("La consigne obligeant, tapez 1 si vous voulez voir l'affichage des sommes à rendre obligatoires.\n Sinon tapez n'importe quel nombre pour sortir de chez Madame Guipure. ")
+            if reponse_somme_obligatoire_guipure == '1':
+                for elements_2 in somme_obligatoire_madame_guipure:
                     print(f"Rendu monnaie pour {elements_2}€")
-                    Madame_Guipure(elements_2)
+                    madame_guipure(elements_2)
                     print("\n")
         else :
             somme_obligatoire_chez_ollivander = [{Gallions : 0 , Mornilles : 0 , Noises :0},{Gallions : 0, Mornilles : 0, Noises : 654},{Gallions : 0, Mornilles : 23, Noises : 78}, {Gallions : 2 , Mornilles : 11, Noises : 9}, {Gallions : 7 , Mornilles : 531 , Noises : 451}]
-            print("\nVous êtes dans la boutique de Ollivander.")
+            print("\nVous êtes dans la boutique de Ollivander 🧙.")
             Ollivander()
             print("\n")
-            reponse_somme_obligatoire_ollivander = input("La consigne obligeant, tapez 8 si vous voulez voir l'affichage des sommes à rendre obligatoires. Sinon tapez n'importe quel nombre pour sortir de chez Ollivander. ")
-            if reponse_somme_obligatoire_ollivander == '8' : 
+            reponse_somme_obligatoire_ollivander = input("La consigne obligeant, tapez 1 si vous voulez voir l'affichage des sommes à rendre obligatoires. Sinon tapez n'importe quel nombre pour sortir de chez Ollivander. ")
+            if reponse_somme_obligatoire_ollivander == '1' : 
                 for elements_3 in somme_obligatoire_chez_ollivander :
                     print(f"Rendu monnaie pour {elements_3}€")
                     Ollivander(elements_3)
                     print("\n")
         reponse = input("Te revoilà sur le Chemin de traverse !\n\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, tape 3 \nSi tu souhaites quitter le chemin de traverse,  \nOù souhaites-tu aller ? ")
-    print("\nVous quittez le chemin de traverse, à bientôt !")      
+    print("\nVous quittez le chemin de traverse 🏦, à bientôt 👋!")      
 
 """
 PROGRAMME PRINCIPAL
 """
+
+menu()
+tuple_1 = (0, 0, 0)
+a, b, c = tuple_1
+monnaie_obligatoire_chez_ollivander = [{Gallions : 0 , Mornilles : 0 , Noises :0},{Gallions : 0, Mornilles : 0, Noises : 654},{Gallions : 0, Mornilles : 23, Noises : 78}, {Gallions : 2 , Mornilles : 11, Noises : 9}, {Gallions : 7 , Mornilles : 531 , Noises : 451}]
 
 menu()
 tuple_1 = (0, 0, 0)
