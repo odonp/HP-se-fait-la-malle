@@ -215,7 +215,7 @@ def menu():
                 # Appel de la fonction Ollivander
                 affichage_ollivander(gallions_rendu_obligatoire, mornilles_rendu_obligatoire, noises_rendu_obligatoire)         
             #Entrée manuelle des valeurs
-            reponse_menu_ollivander = input("\nSi vous voulez entrer des valeurs manuellement, tapez 7. \nSinon, pour quitter le magasin et retourner au chemin de traverse, tapez n'importe quel nombre ou caractère")
+            reponse_menu_ollivander = input("\nSi vous voulez entrer des valeurs manuellement, tapez 7. \nSinon, pour quitter le magasin et retourner au chemin de traverse, tapez n'importe quel nombre ou caractère ")
             if reponse_menu_ollivander == '7':
                 gallions = int(input("Combien de gallions dois-je rendre ? (Entrez une valeur) "  ))
                 mornilles = int(input("Combien de mornilles dois-je rendre ? (Entrez une valeur) "  ))
