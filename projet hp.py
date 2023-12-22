@@ -120,7 +120,7 @@ def chez_fleury_et_bott(somme_a_rendre_chez_fleury_et_bott):
 
 
 def madame_guipure(montant):
-    somme_obligatoire_chez_madame_guipure = (0, 17, 68, 231, 497, 842)
+
     tiroir_caisse_chez_madame_guipure = {
         200: 1,
         100: 3,
@@ -130,25 +130,25 @@ def madame_guipure(montant):
         5: 1,
         2: 5
     }
-    print("Rendu de monnaie :")
-    for element in range(len(somme_obligatoire_chez_madame_guipure)):
-        rendu = {}
-        
-        for espece in sorted(tiroir_caisse_chez_madame_guipure.keys(), reverse=True):
-            while montant >= espece and tiroir_caisse_chez_madame_guipure[espece] > 0:
-                montant -= espece
-                if espece in rendu:
-                    rendu[espece] += 1
-                else:
-                    rendu[espece] = 1
-                tiroir_caisse_chez_madame_guipure[espece] -= 1
+    
 
-        for espece, quantite in rendu.items():
-            print(f"{quantite} coupure(s) de {espece} €")
-        # Vérifier s'il manque de l'argent à rendre
+    rendu = {}
+    
+    for espece in sorted(tiroir_caisse_chez_madame_guipure.keys(), reverse=True):
+        while montant >= espece and tiroir_caisse_chez_madame_guipure[espece] > 0:
+            montant -= espece
+            if espece in rendu:
+                rendu[espece] += 1
+            else:
+                rendu[espece] = 1
+            tiroir_caisse_chez_madame_guipure[espece] -= 1
+
+    for espece, quantite in rendu.items():
+        print(f"{quantite} coupure(s) de {espece} €")
+    # Vérifier s'il manque de l'argent à rendre
     if montant > 0:
         print(f"Désolé, il manque {montant} euro(s) dans le tiroir caisse.")
-        
+
 
 
 def ollivander (gallions1, mornilles1, noises1):
@@ -176,7 +176,16 @@ def ollivander (gallions1, mornilles1, noises1):
     
     return a_rendre
     
+def affichage_ollivander(a, b, c):
+    '''
+    Affiche les valeurs de gallions, mornilles et noises que Ollivander rend
     
+    Entrée : Des nombres entiers
+    Sortie : Des chaines de caractères
+    '''
+    valeurs_rendues_fonction = ollivander(a, b, c)
+    for i in range (3):
+        print(f"Ollivander vous rends {valeurs_rendues_fonction[i]} {monnaie_magique[i]}")
 
 
 
@@ -212,7 +221,7 @@ def menu():
                     print(f"Rendu monnaie pour {elements_somme_obligatoire_guipure}€")
                     madame_guipure(elements_somme_obligatoire_guipure)
                     print("\n")
-            reponse_menu_guipure = input("\nSi vous voulez entrer des valeurs manuellement, tapez 8. Sinon, pour quitter le magasin et retourner au chemin de traverse, tapez n'importe quel nombre ou caractère")        
+            reponse_menu_guipure = input("\nSi vous voulez entrer des valeurs manuellement, tapez 8. Sinon, pour quitter le magasin et retourner au chemin de traverse, tapez n'importe quel nombre ou caractère. ")        
             if reponse_menu_guipure == '8':
                 argent_a_rendre_guipure = int(input("\nCombien doit-on vous rendre ? (entrez un entier)"))
                 print("\n")
@@ -238,19 +247,18 @@ def menu():
                 noises_rendu_obligatoire = elements_dans_la_liste_obligatoire_ollivander['noises']
                 print(f"\nRendu de monnaie pour Gallions: {gallions_rendu_obligatoire}, Mornilles: {mornilles_rendu_obligatoire}, Noises: {noises_rendu_obligatoire}")
                 
-                valeurs_rendues_obligatoire_ollivander = ollivander(gallions_rendu_obligatoire, mornilles_rendu_obligatoire, noises_rendu_obligatoire)
-                for j in range(3):
-                    print(f"Ollivander vous rends {valeurs_rendues_obligatoire_ollivander[j]} {monnaie_magique[j]}")
+                affichage_ollivander(gallions_rendu_obligatoire, mornilles_rendu_obligatoire, noises_rendu_obligatoire)
+                
+                
             #Entrée manuelle des valeurs
             reponse_menu_ollivander = input("\nSi vous voulez entrer des valeurs manuellement, tapez 7. Sinon, pour quitter le magasin et retourner au chemin de traverse, tapez n'importe quel nombre ou caractère")
             if reponse_menu_ollivander == '7':
                 gallions = int(input("Combien de gallions dois-je rendre ? (Entrez une valeur)"))
                 mornilles = int(input("Combien de mornilles dois-je rendre ? (Entrez une valeur) "))
                 noises = int(input("Combien de noises dois-je rendre ? (Entrez une valeur) "))
+                affichage_ollivander(gallions, mornilles, noises)
                 
-                valeurs_rendues = ollivander(gallions, mornilles, noises)  # Appel de la fonction ollivander et récupération des valeurs retournées
-                for i in range (3):
-                    print(f"Ollivander vous rends {valeurs_rendues[i]} {monnaie_magique[i]}")
+                
             else :
                 print("vous quittez le magasin d'Ollivander")     
             
