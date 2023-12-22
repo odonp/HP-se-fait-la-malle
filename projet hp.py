@@ -42,7 +42,7 @@ from random import randint
 
 
 #définition des constantes
-
+monnaie_magique = ["gallions","mornilles", "noises"]
 
 
 
@@ -214,36 +214,42 @@ def menu():
                     madame_guipure(elements_2)
                     print("\n")
         else :
-            #somme_obligatoire_chez_ollivander = [{gallions : 0 , mornilles : 0 , noises :0},{gallions : 0, mornilles : 0, noises : 654},{gallions : 0, mornilles : 23, noises : 78}, {gallions : 2 , mornilles : 11, noises : 9}, {gallions : 7 , mornilles : 531 , noises : 451}]
-            monnaie_magique = ["gallions","mornilles", "noises"]
-            print("\nVous êtes dans la boutique de ollivander 🧙.")
-            gallions = int(input("Combien de gallions dois-je rendre ? (Entrez une valeur)"))
-            mornilles = int(input("Combien de mornilles dois-je rendre ? (Entrez une valeur) "))
-            noises = int(input("Combien de noises dois-je rendre ? (Entrez une valeur) "))
+            print("\nVous êtes dans la boutique de ollivander 🧙.\n")
+            
+            somme_obligatoire_chez_ollivander = [
+            {'gallions': 0, 'mornilles': 0, 'noises': 0},
+            {'gallions': 0, 'mornilles': 0, 'noises': 654},
+            {'gallions': 0, 'mornilles': 23, 'noises': 78},
+            {'gallions': 2, 'mornilles': 11, 'noises': 9},
+            {'gallions': 7, 'mornilles': 531, 'noises': 451}
+        ]
+
+            # Affichage des résultats obligatoires
+            print("Affichage des résultats obligatoires:\n")
+            for elements_dans_la_liste_obligatoire_ollivander in somme_obligatoire_chez_ollivander:
+                gallions_rendu_obligatoire = elements_dans_la_liste_obligatoire_ollivander['gallions']
+                mornilles_rendu_obligatoire = elements_dans_la_liste_obligatoire_ollivander['mornilles']
+                noises_rendu_obligatoire = elements_dans_la_liste_obligatoire_ollivander['noises']
+                print(f"\nRendu de monnaie pour Gallions: {gallions_rendu_obligatoire}, Mornilles: {mornilles_rendu_obligatoire}, Noises: {noises_rendu_obligatoire}")
+                
+                valeurs_rendues_obligatoire_ollivander = ollivander(gallions_rendu_obligatoire, mornilles_rendu_obligatoire, noises_rendu_obligatoire)
+                for j in range(3):
+                    print(f"Ollivander vous rends {valeurs_rendues_obligatoire_ollivander[j]} {monnaie_magique[j]}")
+            #Entrée manuelle des valeurs
+            reponse_menu_ollivander = input("\nSi vous voulez entrer des valeurs manuellement, tapez 7. Sinon, pour quitter le magasin et retourner au chemin de traverse, tapez n'importe quel nombre ou caractère")
+            if reponse_menu_ollivander == '7':
+                gallions = int(input("Combien de gallions dois-je rendre ? (Entrez une valeur)"))
+                mornilles = int(input("Combien de mornilles dois-je rendre ? (Entrez une valeur) "))
+                noises = int(input("Combien de noises dois-je rendre ? (Entrez une valeur) "))
+                
+                valeurs_rendues = ollivander(gallions, mornilles, noises)  # Appel de la fonction ollivander et récupération des valeurs retournées
+                for i in range (3):
+                    print(f"Ollivander vous rends {valeurs_rendues[i]} {monnaie_magique[i]}")
+            else :
+                print("vous quittez le magasin d'Ollivander")     
             
             
-            valeurs_rendues = ollivander(gallions, mornilles, noises)  # Appel de la fonction ollivander et récupération des valeurs retournées
-            for i in range (3):
-                print(f"ollivander vous rends {valeurs_rendues[i]} {monnaie_magique[i]}")
-                 
-            
-            
-            '''
-            reponse_somme_obligatoire_ollivander = input("La consigne obligeant, tapez 1 si vous voulez voir l'affichage des sommes à rendre obligatoires. Sinon tapez n'importe quel nombre pour sortir de chez ollivander. ")
-            
-            if reponse_somme_obligatoire_ollivander == '1' : 
-                for elements_3 in somme_obligatoire_chez_ollivander :
-                    print(f"Rendu monnaie pour {elements_3}€")
-                    for i in elements_3.keys : 
-                        liste_ollivander = []
-                        liste_ollivander.append(i)
-                    print(liste_ollivander)
-                    ollivander()
-                    
-                    ollivander(elements_3)
-                    print("\n")
-                    '''
-        reponse = input("Te revoilà sur le Chemin de traverse !\n\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez ollivander, fabricant de baguettes magiques, tape 3 \nSi tu souhaites quitter le chemin de traverse,  \nOù souhaites-tu aller ? ")
+        reponse = input("\nTe revoilà sur le Chemin de traverse !\n\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez ollivander, fabricant de baguettes magiques, tape 3 \nSi tu souhaites quitter le chemin de traverse,  \nOù souhaites-tu aller ? ")
     print("\nVous quittez le chemin de traverse 🏦, à bientôt 👋!")      
 
 """
@@ -251,13 +257,3 @@ PROGRAMME PRINCIPAL
 """
 
 menu()
-'''
-tuple_1 = (0, 0, 0)
-a, b, c = tuple_1
-monnaie_obligatoire_chez_ollivander = [{gallions : 0 , mornilles : 0 , noises :0},{gallions : 0, mornilles : 0, noises : 654},{gallions : 0, mornilles : 23, noises : 78}, {gallions : 2 , mornilles : 11, noises : 9}, {gallions : 7 , mornilles : 531 , noises : 451}]
-
-menu()
-tuple_1 = (0, 0, 0)
-a, b, c = tuple_1
-monnaie_obligatoire_chez_ollivander = [{gallions : 0 , mornilles : 0 , noises :0},{gallions : 0, mornilles : 0, noises : 654},{gallions : 0, mornilles : 23, noises : 78}, {gallions : 2 , mornilles : 11, noises : 9}, {gallions : 7 , mornilles : 531 , noises : 451}]
-'''
