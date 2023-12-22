@@ -66,11 +66,10 @@ rendre = 0
 
 def affichage (argent_a_rendre_fonction, dico):
     '''
-    Affiche le rendu de monnaie détaillé
-    
-    Entrée :
-    Sortie : 
-    
+        Affiche le rendu de monnaie détaillé 
+        
+        Entrée : Argent de monnaie à rendre brute
+        Sortie : Affichage du rendu de monnaie 
     '''
     if argent_a_rendre_fonction == 0 :
         print("Le commerçant n'a rien à vous rendre")
@@ -83,15 +82,14 @@ def affichage (argent_a_rendre_fonction, dico):
             print(f"Le commerçant vous rend {dico[i]} coupure.s de {i} €")
 
 
-def chez_fleury_et_bott(somme_a_rendre_chez_fleury_et_bott):
+def chez_fleury_et_bott(somme_a_rendre_chez_fleury_et_bott):        
     '''
-    Réalise le rendu de monnaie et une partie de l'IHM pour la boutique de fleury et bott
-
-    Entrée : 
-
-    Sortie : 
+    Rend la monnaie avec le moins de billets possibles pour la boutique Chez Fleury et Bott à l'aide d'un tiroir caisse illimité 
     
+    Entrée : Somme d'argent à rendre (Argent obligatoire ou argent choisi par l'utilisateur)
+    Sortie : Somme d'argent rendu par Chez Fleury et Bott 
     '''
+    
     argent_a_rendre_chez_fleury_et_bott = []
     somme_a_rendre_initiale_chez_fleury_et_bott = 0
     somme_a_rendre_initiale_chez_fleury_et_bott = somme_a_rendre_chez_fleury_et_bott
@@ -120,7 +118,15 @@ def chez_fleury_et_bott(somme_a_rendre_chez_fleury_et_bott):
 
 
 def madame_guipure(montant):
+    '''
+    Rend la monnaie avec le moins de billets possibles pour la boutique Madame Guipure à l'aide d'un tiroir caisse limité et indique éventuellement si le rendu de monnaie est incomplet avec combien d'argent il sera impossible de rendre
+  
+    Entrée : Somme d'argent à rendre (Argent obligatoire ou argent choisi par l'utilisateur)
+    Sortie : Somme d'argent rendu par Madame Guipure
+    '''
+    
 
+    #Création d'un dictionnaire tiroir caisse limité
     tiroir_caisse_chez_madame_guipure = {
         200: 1,
         100: 3,
@@ -133,7 +139,7 @@ def madame_guipure(montant):
     
 
     rendu = {}
-    
+    #Trier toutes les clés du tiroir caisse limité par ordre décroissanr
     for espece in sorted(tiroir_caisse_chez_madame_guipure.keys(), reverse=True):
         while montant >= espece and tiroir_caisse_chez_madame_guipure[espece] > 0:
             montant -= espece
@@ -152,17 +158,17 @@ def madame_guipure(montant):
 
 
 def ollivander (gallions1, mornilles1, noises1):
-    '''
-    Fait le change, le calcul et une partie de l'IHM pour le magasin de ollivander
     
-    Entrée : 
-    Sortie : 
     '''
-
+    Réalise le change, un calcul pour savoir et une partie de l'IHM pour le magasin de ollivander
+        
+    Entrée : Nombre de gallions, nombre de mornilles et nombre de noises
+    Sortie : Minimun de pièces possible
+    '''
 
     a_rendre = []
     monnaie_magique = ["gallions","mornilles", "noises"]
-    
+    # Tranformation de toute la monnaie en noises
     somme_en_noises = (gallions1 * 17 * 29) + (mornilles1 * 29) + noises1
     gallions_a_rendre = somme_en_noises // (17*29)
     a_rendre.append(gallions_a_rendre)
@@ -192,8 +198,6 @@ def affichage_ollivander(a, b, c):
 def menu():
     '''
     Régie tout le programme en faisant appel aux fonctions
-    Entré : 
-    Sortie 
     '''
     reponse = input("\nBonjour sorcier/n. Tu es sur le Chemin de traverse.\n\n- Si tu souhaites aller chez Fleury et Bott, librairie de sorciers 📚, tape 1 \n\n- Si tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier\es 🧥, tape 2 \n\n- Si tu souhaites aller chez ollivander, fabricant de baguettes magiques 🧙, tape 3 \n\n- Si tu souhaites quitter le chemin de traverse 🏦, tape sur n'importe quel autre chiffre \n\nOù souhaites-tu aller ? ")   
     while reponse=='1' or reponse=='2' or reponse=='3' :  
@@ -204,6 +208,7 @@ def menu():
             somme_obligatoire_chez_fleury_et_bott = (0, 60, 63, 231, 899)
             for elements in somme_obligatoire_chez_fleury_et_bott:
                     print(f"Rendu monnaie pour {elements}€")
+                    # Appel de la fonction Chez Fleury et Bott
                     chez_fleury_et_bott(elements)
                     print("\n")
             reponse_menu_fleuryetbott = input("\nSi vous voulez entrer des valeurs manuellement, tapez 6. \nSinon, pour quitter le magasin et retourner au chemin de traverse, tapez n'importe quel nombre ou caractère")        
@@ -219,6 +224,7 @@ def menu():
             print("\nAffichage des résultats obligatoires\n")
             for elements_somme_obligatoire_guipure in somme_obligatoire_madame_guipure:
                     print(f"Rendu monnaie pour {elements_somme_obligatoire_guipure}€")
+                    # Appel de la fonction Madame Guipure
                     madame_guipure(elements_somme_obligatoire_guipure)
                     print("\n")
             reponse_menu_guipure = input("\nSi vous voulez entrer des valeurs manuellement, tapez 8. \nSinon, pour quitter le magasin et retourner au chemin de traverse, tapez n'importe quel nombre ou caractère. ")        
@@ -246,7 +252,7 @@ def menu():
                 mornilles_rendu_obligatoire = elements_dans_la_liste_obligatoire_ollivander['mornilles']
                 noises_rendu_obligatoire = elements_dans_la_liste_obligatoire_ollivander['noises']
                 print(f"\nRendu de monnaie pour Gallions: {gallions_rendu_obligatoire}, Mornilles: {mornilles_rendu_obligatoire}, Noises: {noises_rendu_obligatoire}")
-                
+                # Appel de la fonction Ollivander
                 affichage_ollivander(gallions_rendu_obligatoire, mornilles_rendu_obligatoire, noises_rendu_obligatoire)
                 
                 
@@ -268,7 +274,7 @@ def menu():
 
 """
 PROGRAMME PRINCIPAL
+Appel de la fonction menu qui permet d'entrer sur le chemin de traverse et d'aller dans différentes boutiques
 """
 
 menu()
-
