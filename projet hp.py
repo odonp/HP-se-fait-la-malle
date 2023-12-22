@@ -56,7 +56,7 @@ dico_monnaie_illimitée = {\
   2:0   ,
   1:0 }
 
-
+rendre = 0
 
 #définition des fonctions dans l'ordre d'utlilisation
 
@@ -86,7 +86,8 @@ def menu():
             reponse = input("Bonjour sorcier/e. Tu es de retour sur le Chemin de traverse.\nSi tu souhaites aller chez Fleury et Bott, librairie de sorcier, tape 1 \nSi tu souhaites aller chez Madame Guipure, magasin de prêt à porter pour mages et sorcier, tape 2 \nSi tu souhaites aller chez Ollivander, fabricant de baguettes magiques, tape 3 \nOù souhaites-tu aller ? ")
             #pouvoir se re tp avec les nombres
     elif reponse == '2' :
-        Guipur()
+        argent_a_rendre_guipure = int(input("\nVous êtes dans le magasin de Mme guipure.\nCombien doit-ont vous rendre ? (entrez un entier)"))
+        print(Madame_Guipure(argent_a_rendre_guipure))
     
  
     elif reponse == '3':
@@ -151,7 +152,35 @@ def chez_fleury_et_bott(argent_a_rendre):
         argent_rendu.append(monnaie[index+1])
     
     affichage(argent_a_rendre2, dico_monnaie_illimitée)
-    
+
+def Madame_Guipure(montant):
+    tiroir_caisse = {
+        200: 1,
+        100: 3,
+        50: 1,
+        20: 1,
+        10: 1,
+        5: 1,
+        2: 5
+    }
+    rendu = {}
+    for billet in sorted(tiroir_caisse.keys(), reverse=True):
+        while montant >= billet and tiroir_caisse[billet] > 0:
+            montant -= billet
+            rendu[billet] = rendu.get(billet, 0) + 1
+            tiroir_caisse[billet] -= 1
+
+    # Afficher le rendu
+    print("Rendu de monnaie :")
+    for billet, quantite in rendu.items():
+        print(f"{quantite} coupure(s) de {billet} €")
+    # Vérifier s'il manque de l'argent à rendre
+    if montant > 0:
+        print(f"Il manque {montant} euro(s) dans le tiroir caisse.")
+# Test du programme avec un montant de 325 euros à rendre
+#Madame_Guipure(53)
+
+
 
 
 def Ollivander ():
